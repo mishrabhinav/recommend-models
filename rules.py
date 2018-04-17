@@ -7,6 +7,7 @@ from .user import User
 class Rules(MongoModel):
     user = fields.ReferenceField(User, required=True)
     rules = fields.BinaryField(required=True)
+    created_on = fields.DateTimeField(required=True)
 
     class Meta:
         write_concern = WriteConcern(j=True)
