@@ -3,11 +3,10 @@ from pymongo.write_concern import WriteConcern
 
 from .directions import Directions
 from .forecast import Forecast
-from .user import User
 
 
 class Recommendations(MongoModel):
-    user = fields.ReferenceField(User, required=True)
+    user = fields.CharField(required=True)
     created_on = fields.DateTimeField(required=True)
     selected = fields.ReferenceField(Directions, blank=True)
     available = fields.ListField(fields.ReferenceField(Directions))
