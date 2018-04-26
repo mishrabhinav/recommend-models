@@ -11,6 +11,7 @@ class Recommendations(MongoModel):
     selected = fields.ReferenceField(Directions, blank=True)
     available = fields.ListField(fields.ReferenceField(Directions))
     forecast = fields.ListField(fields.ReferenceField(Forecast))
+    method = fields.CharField(blank=True)
 
     class Meta:
         write_concern = WriteConcern(j=True)
